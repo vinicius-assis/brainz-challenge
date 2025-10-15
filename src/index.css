@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    /* Fonte padrão */
+    --font-sans: 'Lato', sans-serif;
+
+    /* Cores primárias */
+    --color-primary: #0E4194;
+    --color-primary-light: #006BD2;
+
+    /* Cores secundárias */
+    --color-secondary: #006BD2;
+    --color-secondary-50: #E6F4FF;
+    --color-secondary-100: #B3E0FF;
+    --color-secondary-500: #006BD2;
+
+    /* Estados */
+    --color-negative: #DC3545;
+    --color-positive: #008555;
+    --color-alert: #CD8417;
+
+    /* Neutros */
+    --color-neutral-900: #363636;
+    --color-neutral-100: #FFFFFF;
+}
