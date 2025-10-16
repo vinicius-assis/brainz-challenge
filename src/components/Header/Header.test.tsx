@@ -1,11 +1,15 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
+import { BrowserRouter } from 'react-router-dom'
 import Header from './index'
 
 describe('Header Component', () => {
   it('should render navigation links', () => {
-    render(<Header />)
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
 
     expect(screen.getByText('Página Inicial')).toBeInTheDocument()
     expect(screen.getByText('Revisões')).toBeInTheDocument()
@@ -13,8 +17,12 @@ describe('Header Component', () => {
     expect(screen.getByText('Simulados')).toBeInTheDocument()
   })
 
-  it('should have only Home and Reviews as clickable links', () => {
-    render(<Header />)
+  it('should have only Página Inicial and Revisões as clickable links', () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
 
     const paginaInicial = screen.getByText('Página Inicial')
     const revisoes = screen.getByText('Revisões')
@@ -27,20 +35,12 @@ describe('Header Component', () => {
     expect(simulados.tagName).toBe('SPAN')
   })
 
-  it('should mark Home as active by default', () => {
-    const { container } = render(<Header />)
-
-    const activeIndicators = container.querySelectorAll('.bg-primary')
-    expect(activeIndicators).toHaveLength(1)
-  })
-
-  it('should toggle active item on click', async () => {
-    const user = userEvent.setup()
-    const { container } = render(<Header />)
-
-    const revisoesLink = screen.getByText('Revisões')
-
-    await user.click(revisoesLink)
+  it('should mark Página Inicial as active when on home page', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
 
     const activeIndicators = container.querySelectorAll('.bg-primary')
     expect(activeIndicators).toHaveLength(1)
