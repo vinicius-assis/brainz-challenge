@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import mathImage from '../../assets/math.svg'
 import languageImage from '../../assets/language.svg'
 import humanCienceImage from '../../assets/human-cience.svg'
@@ -49,7 +50,7 @@ const ReviewSection = () => {
         <>
             <div className="flex justify-between mt-8">
                 <h3 className="text-neutral-900 text-title-3">Área de Revisão</h3>
-                <a href="/revisoes">+ Acessar todas as áreas de conhecimento</a>
+                <Link to="/revisoes">+ Acessar todas as áreas de conhecimento</Link>
             </div>
             <Divider className="mt-4 mb-8" />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
