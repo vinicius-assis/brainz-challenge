@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-    /* Fonte padrão */
+    /* Fontes */
     --font-sans: 'Lato', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
 
     /* Cores primárias */
     --color-primary: #0E4194;
@@ -23,4 +25,124 @@
     /* Neutros */
     --color-neutral-900: #363636;
     --color-neutral-100: #FFFFFF;
+
+    --font-size-title-0: 36px;
+    --line-height-title-0: 1.2;
+    --font-weight-title-0: 600;
+
+    --font-size-title-1: 28px;
+    --line-height-title-1: 1.2;
+    --font-weight-title-1: 600;
+
+    --font-size-title-2: 24px;
+    --line-height-title-2: 1.2;
+    --font-weight-title-2: 600;
+
+    --font-size-title-3: 20px;
+    --line-height-title-3: 1.2;
+    --font-weight-title-3: 600;
+
+    --font-size-title-4: 18px;
+    --line-height-title-4: 1.4;
+    --font-weight-title-4: 500;
+
+    --font-size-title-5: 16px;
+    --line-height-title-5: 1.4;
+    --font-weight-title-5: 500;
+
+    --font-size-button: 16px;
+    --line-height-button: 1.5;
+    --font-weight-button: 600;
+
+    --font-size-button-p: 14px;
+    --line-height-button-p: 1.5;
+    --font-weight-button-p: 600;
+
+    --font-size-body-g: 16px;
+    --line-height-body-g: 1.5;
+    --font-weight-body-g: 400;
+
+    --font-size-body: 16px;
+    --line-height-body: 1.5;
+    --font-weight-body: 400;
+
+    --font-size-support: 14px;
+    --line-height-support: 1.5;
+    --font-weight-support: 400;
+
+    --font-size-support-p: 12px;
+    --line-height-support-p: 1.5;
+    --font-weight-support-p: 400;
+}
+
+.text-title-0 {
+    font-size: var(--font-size-title-0);
+    line-height: var(--line-height-title-0);
+    font-weight: var(--font-weight-title-0);
+}
+
+.text-title-1 {
+    font-size: var(--font-size-title-1);
+    line-height: var(--line-height-title-1);
+    font-weight: var(--font-weight-title-1);
+}
+
+.text-title-2 {
+    font-size: var(--font-size-title-2);
+    line-height: var(--line-height-title-2);
+    font-weight: var(--font-weight-title-2);
+}
+
+.text-title-3 {
+    font-size: var(--font-size-title-3);
+    line-height: var(--line-height-title-3);
+    font-weight: var(--font-weight-title-3);
+}
+
+.text-title-4 {
+    font-size: var(--font-size-title-4);
+    line-height: var(--line-height-title-4);
+    font-weight: var(--font-weight-title-4);
+}
+
+.text-title-5 {
+    font-size: var(--font-size-title-5);
+    line-height: var(--line-height-title-5);
+    font-weight: var(--font-weight-title-5);
+}
+
+.text-button {
+    font-size: var(--font-size-button);
+    line-height: var(--line-height-button);
+    font-weight: var(--font-weight-button);
+}
+
+.text-button-p {
+    font-size: var(--font-size-button-p);
+    line-height: var(--line-height-button-p);
+    font-weight: var(--font-weight-button-p);
+}
+
+.text-body-g {
+    font-size: var(--font-size-body-g);
+    line-height: var(--line-height-body-g);
+    font-weight: var(--font-weight-body-g);
+}
+
+.text-body {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-weight: var(--font-weight-body);
+}
+
+.text-support {
+    font-size: var(--font-size-support);
+    line-height: var(--line-height-support);
+    font-weight: var(--font-weight-support);
+}
+
+.text-support-p {
+    font-size: var(--font-size-support-p);
+    line-height: var(--line-height-support-p);
+    font-weight: var(--font-weight-support-p);
 }
