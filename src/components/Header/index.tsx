@@ -13,27 +13,27 @@ const Header = () => {
           <a
             href="/"
             onClick={() => setActiveItem("inicio")}
-            className="relative pb-1 cursor-pointer"
+            className="text-title-5 relative pb-1 cursor-pointer"
           >
             Página Inicial
             {activeItem === "inicio" && (
               <div className="absolute -bottom-5 left-0 right-0 h-1 bg-primary rounded-t" />
             )}
           </a>
-          <span className="pb-1 text-neutral-600 cursor-not-allowed">
+          <span className="text-title-5 pb-1 cursor-not-allowed">
             Plano de Estudos
           </span>
           <a
             href="/revisoes"
             onClick={() => setActiveItem("revisoes")}
-            className="relative pb-1 cursor-pointer"
+            className="text-title-5 relative pb-1 cursor-pointer"
           >
             Revisões
             {activeItem === "revisoes" && (
               <div className="absolute -bottom-5 left-0 right-0 h-1 bg-primary rounded-t" />
             )}
           </a>
-          <span className="pb-1 text-neutral-600 cursor-not-allowed">
+          <span className="text-title-5 pb-1 cursor-not-allowed">
             Simulados
           </span>
         </nav>
