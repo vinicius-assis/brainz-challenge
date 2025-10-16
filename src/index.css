@@ -9,13 +9,17 @@
 
     /* Cores primárias */
     --color-primary: #0E4194;
-    --color-primary-light: #006BD2;
+    --color-primary-100: #1D6AE8;
+    --color-primary-200: #1656BE;
+    --color-primary-300: #0B306D;
+    --color-primary-400: #071E45;
 
     /* Cores secundárias */
-    --color-secondary: #006BD2;
-    --color-secondary-50: #E6F4FF;
-    --color-secondary-100: #B3E0FF;
-    --color-secondary-500: #006BD2;
+    --color-secondary: #008BD2;
+    --color-secondary-100: #3DBEFF;
+    --color-secondary-200: #009CEB;
+    --color-secondary-300: #0078B5;
+    --color-secondary-400: #006192;
 
     /* Estados */
     --color-negative: #DC3545;
