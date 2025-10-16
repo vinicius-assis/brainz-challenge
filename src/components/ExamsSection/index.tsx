@@ -37,9 +37,8 @@ const ExamsSection = () => {
 
     return (
         <>
-            <div className="flex justify-between mt-8">
+            <div className="mt-8">
                 <h3 className="text-neutral-900 text-title-3">Simulados</h3>
-                <a href="/simulados">+ Acessar todos os simulados</a>
             </div>
             <Divider className="mt-4 mb-8" />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

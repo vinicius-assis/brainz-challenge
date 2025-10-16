@@ -16,19 +16,12 @@ describe('ExamsSection', () => {
         expect(screen.getByText('2º Simulado Enem Ciência da Natureza')).toBeInTheDocument()
     })
 
-    it('should render the link to access all exams', () => {
-        render(<ExamsSection />)
-        const link = screen.getByText('+ Acessar todos os simulados')
-        expect(link).toBeInTheDocument()
-        expect(link).toHaveAttribute('href', '/simulados')
-    })
-
     it('should display category badges', () => {
         render(<ExamsSection />)
         const linguagensTag = screen.getByText('LINGUAGENS')
         const matematicaTag = screen.getByText('MATEMÁTICA')
         const naturezasTag = screen.getAllByText('NATUREZAS')
-        
+
         expect(linguagensTag).toBeInTheDocument()
         expect(matematicaTag).toBeInTheDocument()
         expect(naturezasTag).toHaveLength(2)
