@@ -4,6 +4,7 @@ import ProfileCard from "./components/ProfileCard"
 import Container from "./components/Container"
 import PromoBanner from "./components/PromoBanner"
 import ReviewSection from "./components/ReviewSection"
+import ExamsSection from "./components/ExamsSection"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <ProfileCard />
         <PromoBanner />
         <ReviewSection />
+        <ExamsSection />
       </Container>
     </>
   )
