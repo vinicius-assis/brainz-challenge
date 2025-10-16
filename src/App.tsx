@@ -1,25 +1,18 @@
-import Banner from "./components/Banner"
-import Header from "./components/Header"
-import ProfileCard from "./components/ProfileCard"
-import Container from "./components/Container"
-import PromoBanner from "./components/PromoBanner"
-import ReviewSection from "./components/ReviewSection"
-import ExamsSection from "./components/ExamsSection"
-import Footer from "./components/Footer"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Reviews from './pages/Reviews'
 
 function App() {
   return (
-    <>
-      <Header />
-      <Banner />
-      <Container>
-        <ProfileCard />
-        <PromoBanner />
-        <ReviewSection />
-        <ExamsSection />
-      </Container>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="revisoes" element={<Reviews />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
