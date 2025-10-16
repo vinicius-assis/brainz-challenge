@@ -5,6 +5,7 @@ import Container from "./components/Container"
 import PromoBanner from "./components/PromoBanner"
 import ReviewSection from "./components/ReviewSection"
 import ExamsSection from "./components/ExamsSection"
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <ReviewSection />
         <ExamsSection />
       </Container>
+      <Footer />
     </>
   )
 }
