@@ -1,10 +1,37 @@
 import { Link } from 'react-router-dom'
 import { CirclePlus } from 'lucide-react'
 import Divider from '../Divider'
-import { mockReviewSubjectsResponse } from '../../data/reviewSubjectsData'
+import LoadingSpinner from '../LoadingSpinner'
+import ErrorMessage from '../ErrorMessage'
+import { useSubjects } from '../../api/queries/useSubjects'
 
 const ReviewSection = () => {
-    const { subjects } = mockReviewSubjectsResponse
+    const { data, isLoading, error, refetch } = useSubjects()
+    const subjects = data?.subjects || []
+
+    if (isLoading) {
+        return (
+            <>
+                <div className="flex justify-between items-center mt-8">
+                    <h3 className="text-neutral-900 text-title-3">Área de Revisão</h3>
+                </div>
+                <Divider className="mt-4 mb-8" />
+                <LoadingSpinner className="py-8" />
+            </>
+        )
+    }
+
+    if (error) {
+        return (
+            <>
+                <div className="flex justify-between items-center mt-8">
+                    <h3 className="text-neutral-900 text-title-3">Área de Revisão</h3>
+                </div>
+                <Divider className="mt-4 mb-8" />
+                <ErrorMessage error={error} onRetry={() => refetch()} />
+            </>
+        )
+    }
 
     return (
         <>
