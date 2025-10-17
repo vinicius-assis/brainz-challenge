@@ -1,8 +1,35 @@
 import Divider from '../Divider'
-import { mockExamsResponse } from '../../data/examsData'
+import LoadingSpinner from '../LoadingSpinner'
+import ErrorMessage from '../ErrorMessage'
+import { useExams } from '../../api/queries/useExams'
 
 const ExamsSection = () => {
-    const { exams } = mockExamsResponse
+    const { data, isLoading, error, refetch } = useExams()
+    const exams = data?.exams || []
+
+    if (isLoading) {
+        return (
+            <>
+                <div className="mt-8">
+                    <h3 className="text-neutral-900 text-title-3">Simulados</h3>
+                </div>
+                <Divider className="mt-4 mb-8" />
+                <LoadingSpinner className="py-8" />
+            </>
+        )
+    }
+
+    if (error) {
+        return (
+            <>
+                <div className="mt-8">
+                    <h3 className="text-neutral-900 text-title-3">Simulados</h3>
+                </div>
+                <Divider className="mt-4 mb-8" />
+                <ErrorMessage error={error} onRetry={() => refetch()} />
+            </>
+        )
+    }
 
     return (
         <>
