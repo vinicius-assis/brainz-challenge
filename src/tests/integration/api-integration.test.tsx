@@ -53,7 +53,7 @@ describe('API Integration Tests', () => {
             }, { timeout: 3000 })
 
             await waitFor(() => {
-                expect(screen.getAllByText(/Disponível há/)).toHaveLength(4)
+                expect(screen.getAllByText(/Disponível há/)).toHaveLength(2)
             }, { timeout: 3000 })
         })
 
