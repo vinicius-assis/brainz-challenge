@@ -1,51 +1,10 @@
 import { Link } from 'react-router-dom'
 import { CirclePlus } from 'lucide-react'
-import mathImage from '../../assets/math.svg'
-import languageImage from '../../assets/language.svg'
-import humanCienceImage from '../../assets/human-cience.svg'
-import natureCienceImage from '../../assets/nature-cience.svg'
 import Divider from '../Divider'
-
-interface Subject {
-    title: string
-    image: string
-    bgColor: string
-    borderColor: string
-    textColor: string
-}
+import { mockReviewSubjectsResponse } from '../../data/reviewSubjectsData'
 
 const ReviewSection = () => {
-    const subjects: Subject[] = [
-        {
-            title: 'Matemática',
-            image: mathImage,
-            bgColor: 'bg-[linear-gradient(to_right,#ECF4FF,#fff)]',
-            borderColor: 'border-neutral-400',
-            textColor: 'text-[#2569C3]'
-        },
-        {
-            title: 'Linguagens',
-            image: languageImage,
-            bgColor: 'bg-[linear-gradient(to_right,#F1EEFF,#fff)]',
-            borderColor: 'border-neutral-400',
-            textColor: 'text-[#34238C]'
-        },
-        {
-            title: 'Ciências da Natureza',
-            image: natureCienceImage,
-            bgColor: 'bg-[linear-gradient(to_right,#DBFAE3,#fff)]',
-            borderColor: 'border-neutral-400',
-            textColor: 'text-[#24a31a]'
-
-        },
-        {
-            title: 'Ciências Humanas',
-            image: humanCienceImage,
-            bgColor: 'bg-[linear-gradient(to_right,#FFF4D1,#fff)]',
-            borderColor: 'border-neutral-400',
-            textColor: 'text-[#967200]'
-        }
-    ]
+    const { subjects } = mockReviewSubjectsResponse
 
     return (
         <>
