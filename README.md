@@ -37,8 +37,8 @@ src/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd brainz
+git clone https://github.com/vinicius-assis/brainz-challenge.git
+cd brainz-challenge
 
 # Install dependencies
 npm install
