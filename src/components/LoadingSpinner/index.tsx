@@ -11,7 +11,7 @@ const LoadingSpinner = ({ size = 'md', className = '' }: LoadingSpinnerProps) =>
     }
 
     return (
-        <div className={`flex justify-center items-center ${className}`}>
+        <div className={`flex justify-center items-center ${className}`} data-testid="loading-spinner">
             <div
                 className={`animate-spin rounded-full border-2 border-gray-300 border-t-primary ${sizeClasses[size]}`}
                 role="status"
