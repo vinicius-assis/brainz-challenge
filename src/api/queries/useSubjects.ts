@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import type { ReviewSubjectsResponse } from '../../data/reviewSubjectsData'
+import type { ReviewSubjectsResponse } from '../../types/api'
+import { API_ENDPOINTS, QUERY_KEYS } from '../../constants/api'
 
 const fetchSubjects = async (): Promise<ReviewSubjectsResponse> => {
-    const response = await fetch('/api/subjects')
+    const response = await fetch(API_ENDPOINTS.SUBJECTS)
     if (!response.ok) {
         throw new Error('Failed to fetch subjects')
     }
@@ -11,7 +12,7 @@ const fetchSubjects = async (): Promise<ReviewSubjectsResponse> => {
 
 export const useSubjects = () => {
     return useQuery({
-        queryKey: ['subjects'],
+        queryKey: QUERY_KEYS.SUBJECTS,
         queryFn: fetchSubjects,
     })
 }
