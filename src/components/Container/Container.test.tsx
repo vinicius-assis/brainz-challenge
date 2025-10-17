@@ -13,7 +13,7 @@ describe('Container Component', () => {
         expect(screen.getByText('Test Content')).toBeInTheDocument()
     })
 
-    it('should apply min-h-screen class', () => {
+    it('should apply h-full class', () => {
         const { container } = render(
             <Container>
                 <div>Content</div>
@@ -21,10 +21,10 @@ describe('Container Component', () => {
         )
 
         const containerDiv = container.firstChild as HTMLElement
-        expect(containerDiv.className).toContain('min-h-screen')
+        expect(containerDiv.className).toContain('h-full')
     })
 
-    it('should apply horizontal padding', () => {
+    it('should apply responsive horizontal padding', () => {
         const { container } = render(
             <Container>
                 <div>Content</div>
@@ -32,7 +32,8 @@ describe('Container Component', () => {
         )
 
         const containerDiv = container.firstChild as HTMLElement
-        expect(containerDiv.className).toContain('px-14')
+        expect(containerDiv.className).toContain('px-4')
+        expect(containerDiv.className).toContain('md:px-14')
     })
 
     it('should accept additional className prop', () => {
