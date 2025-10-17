@@ -1,39 +1,8 @@
 import Divider from '../Divider'
-
-interface Exam {
-    category: string
-    title: string
-    daysAvailable: number
-    textColor: string
-}
+import { mockExamsResponse } from '../../data/examsData'
 
 const ExamsSection = () => {
-    const exams: Exam[] = [
-        {
-            category: 'LINGUAGENS',
-            title: '1º Simulado Enem de Linguagens',
-            daysAvailable: 5,
-            textColor: 'text-[#34238C]'
-        },
-        {
-            category: 'MATEMÁTICA',
-            title: '1º Simulado Enem de Matemática',
-            daysAvailable: 5,
-            textColor: 'text-[#2569C3]'
-        },
-        {
-            category: 'NATUREZAS',
-            title: '1º Simulado Enem Ciência da Natureza',
-            daysAvailable: 5,
-            textColor: 'text-[#24a31a]'
-        },
-        {
-            category: 'NATUREZAS',
-            title: '2º Simulado Enem Ciência da Natureza',
-            daysAvailable: 5,
-            textColor: 'text-[#24a31a]'
-        }
-    ]
+    const { exams } = mockExamsResponse
 
     return (
         <>
