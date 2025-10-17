@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { CirclePlus } from 'lucide-react'
 import mathImage from '../../assets/math.svg'
 import languageImage from '../../assets/language.svg'
 import humanCienceImage from '../../assets/human-cience.svg'
@@ -48,27 +49,30 @@ const ReviewSection = () => {
 
     return (
         <>
-            <div className="flex justify-between mt-8">
+            <div className="flex justify-between items-center mt-8">
                 <h3 className="text-neutral-900 text-title-3">Área de Revisão</h3>
-                <Link to="/revisoes">+ Acessar todas as áreas de conhecimento</Link>
+                <Link to="/revisoes" className="text-title-3 text-neutral-900 hover:underline flex items-center gap-2">
+                    <span className="hidden sm:inline">+ Acessar todas as áreas de conhecimento</span>
+                    <CirclePlus className="sm:hidden w-6 h-6" />
+                </Link>
             </div>
             <Divider className="mt-4 mb-8" />
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
                 {subjects.map((subject, index) => (
                     <div
                         key={index}
-                        className={`${subject.bgColor} border ${subject.borderColor} rounded-2xl p-5 flex items-center justify-between gap-4 shadow-[0_5px_8px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow cursor-pointer`}
+                        className={`${subject.bgColor} border ${subject.borderColor} rounded-2xl p-5 flex items-center justify-between gap-4 shadow-[0_5px_8px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow cursor-pointer min-h-[140px] overflow-hidden`}
                     >
-                        <div className="flex-1">
-                            <h4 className={`text-title-2 ${subject.textColor}`}>
+                        <div className="flex-1 min-w-0">
+                            <h4 className={`text-title-2 ${subject.textColor} leading-tight`}>
                                 {subject.title}
                             </h4>
                         </div>
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 w-[100px] h-[100px] flex items-center justify-center">
                             <img
                                 src={subject.image}
                                 alt={subject.title}
-                                className="w-[100px] h-[100px] object-contain"
+                                className="max-w-[100px] max-h-[100px] w-auto h-auto object-contain"
                             />
                         </div>
                     </div>

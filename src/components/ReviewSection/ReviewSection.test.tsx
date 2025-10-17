@@ -31,8 +31,24 @@ describe('ReviewSection', () => {
                 <ReviewSection />
             </BrowserRouter>
         )
-        const link = screen.getByText('+ Acessar todas as áreas de conhecimento')
+        const link = screen.getByRole('link')
         expect(link).toBeInTheDocument()
+        expect(link).toHaveAttribute('href', '/revisoes')
+    })
+
+    it('should show full text on larger screens and CirclePlus icon on smaller screens', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <ReviewSection />
+            </BrowserRouter>
+        )
+
+        const fullTextSpan = container.querySelector('.hidden.sm\\:inline')
+        const circlePlusIcon = container.querySelector('svg')
+
+        expect(fullTextSpan).toBeInTheDocument()
+        expect(circlePlusIcon).toBeInTheDocument()
+        expect(fullTextSpan?.textContent).toBe('+ Acessar todas as áreas de conhecimento')
     })
 
     it('should render images for all subjects', () => {
@@ -43,6 +59,65 @@ describe('ReviewSection', () => {
         )
         const images = screen.getAllByRole('img')
         expect(images).toHaveLength(4)
+    })
+
+    it('should have responsive grid layout', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <ReviewSection />
+            </BrowserRouter>
+        )
+
+        const grid = container.querySelector('.grid')
+        expect(grid?.className).toContain('grid-cols-1')
+        expect(grid?.className).toContain('sm:grid-cols-2')
+        expect(grid?.className).toContain('xl:grid-cols-4')
+    })
+
+    it('should have proper image container sizing', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <ReviewSection />
+            </BrowserRouter>
+        )
+
+        const imageContainers = container.querySelectorAll('.w-\\[100px\\].h-\\[100px\\]')
+        expect(imageContainers).toHaveLength(4)
+
+        const images = screen.getAllByRole('img')
+        images.forEach(img => {
+            expect(img.className).toContain('max-w-[100px]')
+            expect(img.className).toContain('max-h-[100px]')
+            expect(img.className).toContain('object-contain')
+        })
+    })
+
+    it('should have overflow protection on cards', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <ReviewSection />
+            </BrowserRouter>
+        )
+
+        const cards = container.querySelectorAll('.overflow-hidden')
+        expect(cards).toHaveLength(4)
+
+        const cardsWithMinHeight = container.querySelectorAll('.min-h-\\[140px\\]')
+        expect(cardsWithMinHeight).toHaveLength(4)
+    })
+
+    it('should allow text to wrap without truncation', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <ReviewSection />
+            </BrowserRouter>
+        )
+
+        const titles = container.querySelectorAll('h4')
+        titles.forEach(title => {
+            expect(title.className).toContain('leading-tight')
+            expect(title.className).not.toContain('truncate')
+        })
     })
 })
 
