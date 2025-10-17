@@ -189,4 +189,32 @@ describe('TopicCarousel', () => {
         expect(transitionContainer).toBeInTheDocument()
         expect(transitionContainer).toHaveClass('duration-500', 'ease-out')
     })
+
+    it('should handle responsive itemsPerView correctly', () => {
+        // Mock window.innerWidth for different screen sizes
+        const originalInnerWidth = window.innerWidth;
+
+        // Test desktop size (>= 1024px)
+        Object.defineProperty(window, 'innerWidth', {
+            writable: true,
+            configurable: true,
+            value: 1200,
+        });
+
+        const { container } = render(
+            <BrowserRouter>
+                <TopicCarousel category="Test" topics={mockTopics} />
+            </BrowserRouter>
+        )
+
+        // Should show 4 cards on desktop
+        expect(container).toBeInTheDocument()
+
+        // Restore original window.innerWidth
+        Object.defineProperty(window, 'innerWidth', {
+            writable: true,
+            configurable: true,
+            value: originalInnerWidth,
+        });
+    })
 })

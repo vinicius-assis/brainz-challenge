@@ -19,13 +19,25 @@ interface TopicCarouselProps {
 const TopicCarousel = ({ category, topics, bgColor, categoryId, isFirst = false }: TopicCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(4);
   const containerRef = useRef<HTMLDivElement>(null);
   const styles = getCategoryStyles(categoryId);
   const finalBgColor = bgColor || styles.bgColor;
 
-  const itemsPerView = 4;
   const gap = 20;
   const maxIndex = Math.max(0, topics.length - itemsPerView);
+
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(4);
+      }
+    };
+
+    updateItemsPerView();
+  }, []);
 
   useEffect(() => {
     const updateCardWidth = () => {
@@ -37,8 +49,22 @@ const TopicCarousel = ({ category, topics, bgColor, categoryId, isFirst = false 
     };
 
     updateCardWidth();
+
     window.addEventListener('resize', updateCardWidth);
+
     return () => window.removeEventListener('resize', updateCardWidth);
+  }, [itemsPerView]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newItemsPerView = window.innerWidth < 1024 ? 2 : 4;
+      setItemsPerView(newItemsPerView);
+      setCurrentIndex(0); // Reset to first item when switching views
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handlePrev = () => {
