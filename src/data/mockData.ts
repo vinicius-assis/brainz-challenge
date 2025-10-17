@@ -25,7 +25,17 @@ export const mockApiResponse: ApiResponse = {
                     id: '4',
                     title: 'Método Científico em Matemática',
                     description: 'Aprenda como os matemáticos formulam teoremas, realizam provas e constroem o conhecimento matemático.'
-                }
+                },
+                {
+                    id: '5',
+                    title: 'Álgebra e Equações',
+                    description: 'Domine as técnicas de resolução de equações, sistemas lineares e aplicações práticas da álgebra.'
+                },
+                {
+                    id: '6',
+                    title: 'Geometria Plana e Espacial',
+                    description: 'Explore formas, medidas, áreas, volumes e propriedades dos sólidos geométricos.'
+                },
             ]
         },
         {
@@ -51,6 +61,16 @@ export const mockApiResponse: ApiResponse = {
                     id: '4',
                     title: 'Técnicas de Comunicação em Língua Portuguesa',
                     description: 'Entenda como os autores desenvolvem suas ideias, revisam seus textos e aprimoram suas habilidades de comunicação.'
+                },
+                {
+                    id: '5',
+                    title: 'Literatura e Análise Textual',
+                    description: 'Aprenda a interpretar diferentes gêneros literários e desenvolver análise crítica de textos.'
+                },
+                {
+                    id: '6',
+                    title: 'Redação e Produção de Textos',
+                    description: 'Desenvolva habilidades de escrita, argumentação e produção de diferentes tipos textuais.'
                 }
             ]
         },
@@ -77,6 +97,16 @@ export const mockApiResponse: ApiResponse = {
                     id: '4',
                     title: 'Método Científico em Biologia',
                     description: 'Aprenda como os biólogos formulam hipóteses, realizam experimentos e constroem o conhecimento biológico.'
+                },
+                {
+                    id: '5',
+                    title: 'Genética e Evolução',
+                    description: 'Compreenda os princípios da hereditariedade, DNA, mutações e processos evolutivos.'
+                },
+                {
+                    id: '6',
+                    title: 'Ecologia e Meio Ambiente',
+                    description: 'Estude as relações entre organismos e ambiente, ciclos biogeoquímicos e sustentabilidade.'
                 }
             ]
         },
@@ -103,6 +133,16 @@ export const mockApiResponse: ApiResponse = {
                     id: '4',
                     title: 'Método de Pesquisa Histórica',
                     description: 'Aprenda como os historiadores pesquisam, analisam e interpretam o passado, contribuindo para o conhecimento humano.'
+                },
+                {
+                    id: '5',
+                    title: 'Geografia Humana e Econômica',
+                    description: 'Estude a distribuição da população, atividades econômicas e transformações do espaço geográfico.'
+                },
+                {
+                    id: '6',
+                    title: 'Sociologia e Filosofia',
+                    description: 'Compreenda as estruturas sociais, movimentos sociais e principais correntes do pensamento filosófico.'
                 }
             ]
         }

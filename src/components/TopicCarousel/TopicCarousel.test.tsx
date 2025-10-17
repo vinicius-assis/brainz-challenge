@@ -41,7 +41,7 @@ describe('TopicCarousel', () => {
         expect(screen.getByText('Test Category')).toBeInTheDocument()
     })
 
-    it('should render all topic cards', () => {
+    it('should render all topic cards in the carousel', () => {
         render(
             <BrowserRouter>
                 <TopicCarousel category="Test" topics={mockTopics} />
@@ -68,6 +68,7 @@ describe('TopicCarousel', () => {
         expect(prevButton).toBeInTheDocument()
         expect(nextButton).toBeInTheDocument()
     })
+
 
     it('should render show all link', () => {
         render(
@@ -147,5 +148,45 @@ describe('TopicCarousel', () => {
 
         const carouselDiv = container.firstChild as HTMLElement
         expect(carouselDiv).toHaveClass('mt-12')
+    })
+
+    it('should render all cards with flex-shrink-0 class', () => {
+        const manyTopics = Array.from({ length: 10 }, (_, i) => ({
+            id: `${i + 1}`,
+            title: `Topic ${i + 1}`,
+            description: `Description ${i + 1}`
+        }))
+
+        const { container } = render(
+            <BrowserRouter>
+                <TopicCarousel category="Test" topics={manyTopics} />
+            </BrowserRouter>
+        )
+
+        const cards = container.querySelectorAll('.flex-shrink-0')
+        expect(cards).toHaveLength(10)
+    })
+
+    it('should have overflow-hidden container', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <TopicCarousel category="Test" topics={mockTopics} />
+            </BrowserRouter>
+        )
+
+        const overflowContainer = container.querySelector('.overflow-hidden')
+        expect(overflowContainer).toBeInTheDocument()
+    })
+
+    it('should have transition classes for smooth animation', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <TopicCarousel category="Test" topics={mockTopics} />
+            </BrowserRouter>
+        )
+
+        const transitionContainer = container.querySelector('.transition-transform')
+        expect(transitionContainer).toBeInTheDocument()
+        expect(transitionContainer).toHaveClass('duration-500', 'ease-out')
     })
 })
